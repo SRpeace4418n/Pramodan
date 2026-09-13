@@ -1,0 +1,20 @@
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Source working files / heavy PSDs
+Product/
+Brand assets/
+Brand fonts/
+Brand visuals/
+Color palate/
+New folder/
+Visual referance/
+test_nf_direct.html

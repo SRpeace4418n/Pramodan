@@ -1,0 +1,2590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Favicon & Touch Icons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="pramodan_assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="pramodan_assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="pramodan_assets/apple-touch-icon.png">
+  <link rel="shortcut icon" href="pramodan_assets/favicon.ico">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pramodan — Slow-Roasted Makhana Superfood | Brand Showcase</title>
+  <meta name="description" content="Pramodan: India's happiest slow-roasted makhana snacks. 7 authentic signature flavours including Zesty Cheese & Masala Burst. Zero palm oil, 100% natural Indian spices. Designed for brand portfolio showcase." />
+
+  <!-- Local Authentic Brand Fonts -->
+  <style>
+    @font-face {
+      font-family: 'Lilita One';
+      src: url('Brand fonts/LilitaOne-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Cabin Condensed';
+      src: url('Brand fonts/CabinCondensed-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Cabin Condensed';
+      src: url('Brand fonts/CabinCondensed-Medium.ttf') format('truetype');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Cabin Condensed';
+      src: url('Brand fonts/CabinCondensed-SemiBold.ttf') format('truetype');
+      font-weight: 600;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Cabin Condensed';
+      src: url('Brand fonts/CabinCondensed-Bold.ttf') format('truetype');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* Fallback Google Fonts if local font is loading */
+    @import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Cabin+Condensed:wght@400;500;600;700&display=swap');
+
+    /* ══════════════════════════════════════════════════════════
+       DESIGN TOKENS & FOUNDATIONS
+       ══════════════════════════════════════════════════════════ */
+    :root {
+      /* Brand Typography */
+      --f-primary: 'Lilita One', cursive, sans-serif;
+      --f-secondary: 'Cabin Condensed', sans-serif;
+      --f-mono: 'Space Grotesk', monospace;
+
+      /* Pramodan Pop-Energy Master Brand Palette (Inspired by Fanta & Boocha) */
+      --brand-orange: #FF6E14;        /* Pramod Sunburst Orange (Primary Hero Energy) */
+      --brand-yellow: #FFD000;        /* Solar Haldi Gold (from #FFEA00) */
+      --brand-violet: #6A11CB;        /* Electric Jamun Violet (Chromatic Counter-Punch) */
+      --brand-lime: #50FF24;          /* Lotus Neon Lime (from #50FF24) */
+      --brand-pink: #FF2E7E;          /* Flamingo Berry Pink (Appetite Spark) */
+      --brand-ink: #140E20;           /* Midnight Jamun Deep Ink */
+
+      --c-bg: #FFFDF5;                /* Makhana Pearl Cream - High-clarity negative space */
+      --c-bg-dark: #F6EFE0;           /* Warm Cream Tint */
+      --c-gold: var(--brand-yellow);  /* Solar Haldi Gold (25%) */
+      --c-gold-soft: #FFE680;
+      --c-jamun: var(--brand-ink);    /* Midnight Jamun Type & Anchor (10%) */
+      --c-jamun-light: #221834;
+      --c-jamun-muted: #6C5F82;
+      --c-papaya: var(--brand-orange);/* Sunburst Orange CTAs & Energy (25%) */
+      --c-papaya-hover: #E85A00;
+      --white: #FFFFFF;
+
+      /* Semantic Type Tokens */
+      --ink-primary: var(--c-jamun);
+      --ink-muted: var(--c-jamun-muted);
+
+      /* Radii */
+      --r-card: 32px;
+      --r-pill: 100px;
+      --r-sm: 16px;
+
+      /* Shadows & Borders - Grounded in Midnight Jamun */
+      --shadow-card: none;
+      --shadow-subtle: none;
+      --border-light: rgba(30, 22, 43, 0.10);
+    }
+
+    /* Reset & Base Setup */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background-color: var(--c-bg);
+      font-family: var(--f-secondary);
+      color: var(--ink-primary);
+      line-height: 1.45;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Selection */
+    ::selection {
+      background: var(--c-gold);
+      color: var(--c-jamun);
+    }
+
+    /* Common Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-family: var(--f-secondary);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      border-radius: var(--r-pill);
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--c-papaya);
+      color: var(--white);
+      padding: clamp(12px, 1.4vw, 16px) clamp(24px, 2.5vw, 36px);
+      font-size: clamp(1rem, 1.15vw, 1.15rem);
+      box-shadow: none;
+      border: 2px solid var(--c-jamun);
+    }
+    .btn-primary:hover {
+      background: var(--c-papaya-hover);
+      transform: translateY(-2px);
+      box-shadow: none;
+    }
+
+    .btn-orange {
+      background: var(--brand-orange);
+      color: var(--white);
+      font-family: var(--f-secondary);
+      font-weight: 700;
+      padding: clamp(12px, 1.4vw, 16px) clamp(24px, 2.5vw, 36px);
+      font-size: clamp(1rem, 1.15vw, 1.15rem);
+      border-radius: var(--r-pill);
+      border: none;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+    .btn-orange:hover {
+      background: var(--c-papaya-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-glass {
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      color: var(--white);
+      font-family: var(--f-secondary);
+      font-weight: 700;
+      padding: clamp(12px, 1.4vw, 16px) clamp(24px, 2.5vw, 36px);
+      font-size: clamp(1rem, 1.15vw, 1.15rem);
+      border-radius: var(--r-pill);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+    .btn-glass:hover {
+      background: rgba(255, 255, 255, 0.30);
+      transform: translateY(-2px);
+    }
+
+    .btn-flavour-action {
+      border-radius: var(--r-pill);
+      padding: 10px 20px;
+      font-family: var(--f-secondary);
+      font-weight: 800;
+      font-size: 0.95rem;
+      letter-spacing: 0.03em;
+      color: var(--white);
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      text-decoration: none;
+      transition: all 0.22s ease;
+      width: 100%;
+      max-width: 205px;
+      cursor: pointer;
+      border: none;
+      box-shadow: none;
+    }
+    .btn-flavour-action:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.08);
+    }
+    .btn-flavour-action .arrow-circle {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--white);
+      transition: transform 0.2s ease;
+      flex-shrink: 0;
+    }
+    .btn-flavour-action:hover .arrow-circle {
+      transform: translateX(3px);
+    }
+
+    /* Flavour Action Button Color Variants (100% VIBRANT POP COLORS) */
+    .btn-green-flavour   { background: #38A120; color: #fff; }
+    .btn-coral-flavour   { background: #E02418; color: #fff; }
+    .btn-cheese-flavour  { background: #FFA000; color: #fff; }
+    .btn-sage-flavour    { background: #10B981; color: #fff; }
+    .btn-tomato-flavour  { background: #FF3344; color: #fff; }
+    .btn-masala-flavour  { background: #2563EB; color: #fff; }
+    .btn-blue-flavour    { background: #00B4D8; color: #fff; }
+
+    /* ══════════════════════════════════════════════════════════
+       CONTAINER & EDITORIAL SECTION PADDING
+       ══════════════════════════════════════════════════════════ */
+    .site-wrapper {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: clamp(20px, 3.5vw, 48px);
+      display: flex;
+      flex-direction: column;
+      gap: clamp(60px, 8vh, 100px);
+    }
+
+    /* Generous, luxurious breathing space between all sections */
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(100px, 14vh, 180px);
+      width: 100%;
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       1. TOP NAVIGATION
+       ══════════════════════════════════════════════════════════ */
+    header {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      top: 16px;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      pointer-events: none;
+      padding: 0 var(--s-gutter);
+    }
+
+    .nav-bar {
+      pointer-events: auto;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1.5px solid rgba(20, 14, 32, 0.12);
+      border-radius: var(--r-pill);
+      padding: 10px clamp(18px, 3vw, 36px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: clamp(20px, 3.5vw, 56px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+      width: 100%;
+      max-width: 1080px;
+    }
+
+    #main-content {
+      padding-top: 76px;
+    }
+
+    section[id] {
+      scroll-margin-top: 105px !important;
+    }
+
+    .nav-group {
+      display: flex;
+      align-items: center;
+      gap: clamp(16px, 2.5vw, 32px);
+    }
+
+    .nav-link {
+      font-family: var(--f-secondary);
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--ink-primary);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .nav-link:hover {
+      color: var(--c-jamun);
+    }
+
+    .nav-brand-logo {
+      height: clamp(36px, 4.2vw, 44px);
+      width: auto;
+      filter: none;
+      transition: transform 0.2s ease;
+    }
+    .nav-brand-logo:hover {
+      transform: scale(1.05);
+    }
+
+    @media(max-width: 768px) {
+      .nav-group {
+        display: none;
+      }
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       HERO CATEGORY SWITCHER (Makhana / Honey / Cookies)
+       ══════════════════════════════════════════════════════════ */
+    .category-switcher-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 0px;
+      margin-bottom: calc(-1 * clamp(100px, 14vh, 180px) + 14px);
+      position: relative;
+      z-index: 10;
+    }
+    .category-switcher {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1.5px solid rgba(20, 14, 32, 0.10);
+      padding: 5px 6px;
+      border-radius: var(--r-pill);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+    .cat-pill {
+      font-family: var(--f-secondary);
+      font-weight: 700;
+      font-size: clamp(0.92rem, 1.05vw, 1.05rem);
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      padding: 8px 24px;
+      border-radius: var(--r-pill);
+      color: #555060;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1.5px solid transparent;
+      cursor: pointer;
+    }
+    .cat-pill:hover {
+      color: var(--ink-primary);
+      background: rgba(20, 14, 32, 0.05);
+    }
+    .cat-pill.active {
+      background: var(--ink-primary);
+      color: var(--white);
+      font-weight: 800;
+      border-color: var(--ink-primary);
+    }
+    .cat-pill .cat-icon {
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       2. HERO CARD (ECO FRUITS & PIMS SHOWCASE)
+       ══════════════════════════════════════════════════════════ */
+    .hero-card {
+      position: relative;
+      border-radius: var(--r-card);
+      background: linear-gradient(135deg, #74be34 0%, #469a22 65%, #2d7311 100%);
+      color: var(--white);
+      overflow: hidden;
+      padding: clamp(38px, 4.2vw, 60px) clamp(24px, 4.5vw, 60px) clamp(28px, 3.5vw, 42px);
+      min-height: clamp(620px, 74vh, 800px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: background 0.5s ease;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+    }
+
+    /* Giant background typography behind product */
+    .hero-bg-watermark {
+      position: absolute;
+      top: 48%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: var(--f-primary);
+      font-weight: 400;
+      font-size: clamp(4.5rem, 15vw, 13.5rem);
+      line-height: 0.85;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.16);
+      white-space: nowrap;
+      pointer-events: none;
+      user-select: none;
+      z-index: 1;
+      letter-spacing: 0.04em;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    /* Floating Playful Ingredient Doodles */
+    .hero-visual-stage {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: clamp(420px, 54vh, 580px);
+    }
+
+    /* Floating Playful Ingredient Doodles in Hero (ZERO DROP SHADOW) */
+    .hero-doodle {
+      position: absolute;
+      pointer-events: none;
+      z-index: 2;
+      opacity: 0.65;
+      filter: none;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .doodle-1 { top: 12%; left: 52%; width: clamp(40px, 5vw, 64px); transform: rotate(18deg); }
+    .doodle-2 { bottom: 26%; left: 48%; width: clamp(34px, 4vw, 54px); transform: rotate(-15deg); }
+    .doodle-3 { top: 18%; right: 10%; width: clamp(40px, 4.5vw, 60px); transform: rotate(25deg); }
+    .doodle-4 { bottom: 30%; right: 8%; width: clamp(46px, 5.5vw, 70px); transform: rotate(-20deg); }
+
+    /* Top Content Area */
+    .hero-main-content {
+      position: relative;
+      z-index: 3;
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      align-items: center;
+      gap: clamp(20px, 4vw, 60px);
+    }
+
+    .hero-text-block {
+      max-width: 620px;
+    }
+
+    .hero-index-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--f-secondary);
+      font-weight: 700;
+      font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: clamp(14px, 2vh, 22px);
+      opacity: 0.95;
+      color: var(--white);
+    }
+    .hero-index-tag::after {
+      content: '';
+      display: inline-block;
+      width: 44px;
+      height: 2px;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 2px;
+    }
+
+    .hero-title {
+      font-family: var(--f-primary);
+      font-weight: 400;
+      font-size: clamp(3.2rem, 6.2vw, 5.8rem);
+      line-height: 0.98;
+      letter-spacing: 0.01em;
+      color: var(--white);
+      margin-bottom: clamp(16px, 2.2vh, 24px);
+    }
+
+    .hero-description {
+      font-family: var(--f-secondary);
+      font-size: clamp(1.15rem, 1.45vw, 1.4rem);
+      line-height: 1.45;
+      max-width: 520px;
+      opacity: 0.95;
+      color: var(--white);
+      margin-bottom: clamp(28px, 4vh, 42px);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: clamp(12px, 1.5vw, 20px);
+    }
+
+    /* Product Jar Stage */
+    .hero-visual-stage {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: clamp(420px, 54vh, 580px);
+    }
+
+    .hero-product-aura {
+      position: absolute;
+      width: clamp(280px, 34vw, 440px);
+      height: clamp(280px, 34vw, 440px);
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0) 70%);
+      border-radius: 50%;
+      pointer-events: none;
+      filter: blur(24px);
+    }
+
+    .hero-product-img {
+      position: relative;
+      z-index: 4;
+      height: clamp(440px, 56vh, 600px);
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+      filter: none;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+      cursor: pointer;
+    }
+    .hero-product-img:hover {
+      transform: scale(1.04) rotate(2deg);
+    }
+    .hero-product-img:hover {
+      transform: scale(1.04) rotate(2deg);
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       BOTTOM FLAVOUR SWITCHER PILLS (ALL 7 FLAVOURS, NO SCROLLBAR)
+       ══════════════════════════════════════════════════════════ */
+    .hero-flavour-switcher {
+      position: relative;
+      z-index: 5;
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-items: center;
+      gap: clamp(4px, 0.7vw, 10px);
+      margin-top: clamp(24px, 3.5vh, 38px);
+      width: 100%;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding: 4px 2px;
+    }
+    .hero-flavour-switcher::-webkit-scrollbar {
+      display: none;
+    }
+
+    .flavour-pill {
+      background: rgba(255, 255, 255, 0.20);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: var(--r-pill);
+      padding: 7px clamp(10px, 1.1vw, 16px);
+      color: var(--white);
+      font-family: var(--f-secondary);
+      font-weight: 700;
+      font-size: clamp(0.82rem, 0.92vw, 0.96rem);
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      flex-shrink: 0;
+    }
+    .flavour-pill:hover {
+      background: rgba(255, 255, 255, 0.36);
+      transform: translateY(-2px);
+    }
+    .flavour-pill.active {
+      background: var(--white);
+      color: var(--brand-ink);
+      border-color: var(--white);
+      transform: translateY(-2px) scale(1.03);
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       3. "ABOUT US" & BENTO GRID
+       ══════════════════════════════════════════════════════════ */
+    .about-section {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: clamp(36px, 5vw, 76px);
+      align-items: start;
+      padding: clamp(30px, 4vw, 60px) 0;
+    }
+
+    .about-left {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(16px, 2.5vh, 26px);
+    }
+
+    .section-label {
+      font-family: var(--f-primary);
+      font-weight: 400;
+      font-size: clamp(2.6rem, 4.8vw, 4.2rem);
+      line-height: 1.05;
+      color: var(--ink-primary);
+      letter-spacing: 0.01em;
+    }
+
+    .section-tagline {
+      font-family: var(--f-secondary);
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--c-accent);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-tagline::before {
+      content: '';
+      display: inline-block;
+      width: 28px;
+      height: 2px;
+      background: var(--c-accent);
+    }
+
+    .about-desc {
+      font-family: var(--f-secondary);
+      font-size: clamp(1.15rem, 1.4vw, 1.35rem);
+      line-height: 1.55;
+      color: var(--ink-muted);
+    }
+
+    .about-badges-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 6px;
+    }
+    .about-badge {
+      background: var(--c-bg);
+      color: var(--c-jamun);
+      padding: 9px 18px;
+      border-radius: var(--r-pill);
+      font-weight: 800;
+      font-size: 0.92rem;
+      letter-spacing: 0.02em;
+      border: 2px solid var(--c-jamun);
+      box-shadow: 3px 3px 0 var(--c-jamun);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .about-badge:hover {
+      transform: scale(1.05) rotate(-2deg);
+    }
+    .about-badge:nth-child(1) { background: #FFF9DB; border-color: var(--c-jamun); }
+    .about-badge:nth-child(2) { background: #FFF0E6; border-color: var(--c-jamun); }
+    .about-badge:nth-child(3) { background: #EBFFEA; border-color: var(--c-jamun); }
+    .about-badge:nth-child(4) { background: #F3E8FF; border-color: var(--c-jamun); }
+
+    /* 4-Card Bento Grid */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: clamp(16px, 2.2vw, 24px);
+    }
+
+    .bento-card {
+      background: var(--white);
+      border-radius: var(--r-card);
+      padding: clamp(26px, 3.2vw, 36px);
+      box-shadow: none;
+      border: 1.5px solid rgba(20, 14, 32, 0.10);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+      transition: transform 0.25s ease;
+    }
+    .bento-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .bento-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .bento-card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--r-pill);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+    .icon-green  { background: #EBFFEA; border: 2px solid var(--brand-lime); color: #166534; }
+    .icon-orange { background: #FFF0E6; border: 2px solid var(--brand-orange); color: #C24800; }
+    .icon-yellow { background: #FFF9DB; border: 2px solid var(--brand-yellow); color: #8A6800; }
+    .icon-purple { background: #F3E8FF; border: 2px solid var(--brand-violet); color: #5812A8; }
+
+    .bento-stat {
+      font-family: var(--f-primary);
+      font-size: clamp(2.4rem, 3.8vw, 3.4rem);
+      line-height: 1;
+      color: var(--ink-primary);
+    }
+    .bento-card-title {
+      font-family: var(--f-primary);
+      font-size: 1.45rem;
+      color: var(--ink-primary);
+      margin-top: 4px;
+    }
+    .bento-card-desc {
+      font-family: var(--f-secondary);
+      font-size: 1.1rem;
+      color: var(--ink-muted);
+      line-height: 1.4;
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       4. OUR 7 SIGNATURE MAKHANA FLAVOURS (INCLUDING CHEESE & MASALA BURST)
+       ══════════════════════════════════════════════════════════ */
+    .flavours-section {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: clamp(40px, 6vh, 68px);
+      padding: clamp(30px, 4vw, 60px) 0;
+    }
+
+    .flavours-header {
+      max-width: 720px;
+    }
+    .flavours-header h2 {
+      font-family: var(--f-primary);
+      font-weight: 400;
+      font-size: clamp(2.6rem, 4.8vw, 4.2rem);
+      letter-spacing: 0.01em;
+      color: var(--ink-primary);
+      margin-bottom: 8px;
+    }
+    .flavours-header p {
+      font-family: var(--f-secondary);
+      font-size: clamp(1.15rem, 1.4vw, 1.35rem);
+      color: var(--ink-muted);
+    }
+
+    /* Responsive Flex Layout: Centered & Balanced for 7 Flavours */
+    .flavours-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: clamp(24px, 3.5vw, 44px);
+      width: 100%;
+    }
+
+    /* UNBOXED FLAVOUR ITEM: No card box, no border, no shadow! Pure open showcase */
+    .flavour-card {
+      background: transparent;
+      border: none !important;
+      box-shadow: none !important;
+      border-radius: 0;
+      padding: 12px 10px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      flex: 0 1 260px;
+      max-width: 290px;
+      min-width: 230px;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .flavour-card:hover {
+      transform: translateY(-6px);
+    }
+
+    /* Floating Jar Wrap with Signature Vibrant Color Blur & Floating Flavour Doodles */
+    .flavour-card-img-wrap {
+      position: relative;
+      width: 100%;
+      height: 240px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: clamp(16px, 2.2vh, 22px);
+    }
+
+    /* Luminous Vibrant Color Blur directly behind the product jar */
+    .card-aura {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: clamp(170px, 20vw, 210px);
+      height: clamp(170px, 20vw, 210px);
+      border-radius: 50%;
+      filter: blur(34px);
+      opacity: 0.72;
+      pointer-events: none;
+      z-index: 1;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .flavour-card:hover .card-aura {
+      opacity: 0.90;
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    /* Vibrant Hues for each Flavour Blur */
+    .aura-green  { background: #38A120; }  /* Pudina Zing */
+    .aura-coral  { background: #E02418; }  /* Peri-Peri */
+    .aura-cheese { background: #FFA000; }  /* Zesty Cheese */
+    .aura-sage   { background: #10B981; }  /* Cream & Onion - VIBRANT SPRING EMERALD */
+    .aura-tomato { background: #FF3344; }  /* Chatkara Tomato */
+    .aura-masala { background: #2563EB; }  /* Masala Burst */
+    .aura-blue   { background: #00B4D8; }  /* Salt & Pepper - VIBRANT CAPRI AZURE */
+
+    /* Playful Floating Doodles of the flavours of each (ZERO DROP SHADOW) */
+    .flavour-item-doodle {
+      position: absolute;
+      pointer-events: none;
+      z-index: 2;
+      opacity: 0.85;
+      filter: none;
+      transition: transform 0.4s ease;
+    }
+    .doodle-left {
+      top: 14%;
+      left: 4%;
+      width: clamp(34px, 4vw, 44px);
+      transform: rotate(-14deg);
+    }
+    .doodle-right {
+      bottom: 16%;
+      right: 4%;
+      width: clamp(32px, 3.8vw, 42px);
+      transform: rotate(18deg);
+    }
+    .flavour-card:hover .doodle-left {
+      transform: rotate(-22deg) scale(1.1);
+    }
+    .flavour-card:hover .doodle-right {
+      transform: rotate(26deg) scale(1.1);
+    }
+
+    /* Authentic Product Jar (ZERO DROP SHADOW) */
+    .flavour-card-img {
+      position: relative;
+      z-index: 3;
+      height: 100%;
+      width: auto;
+      object-fit: contain;
+      filter: none;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .flavour-card:hover .flavour-card-img {
+      transform: scale(1.06) rotate(-2deg);
+    }
+
+    .flavour-card-title {
+      font-family: var(--f-primary);
+      font-size: 1.65rem;
+      letter-spacing: 0.01em;
+      color: var(--brand-ink);
+      margin-bottom: 4px;
+    }
+    .flavour-card-subtitle {
+      font-family: var(--f-secondary);
+      font-weight: 800;
+      font-size: 0.92rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--brand-orange);
+      margin-bottom: 8px;
+    }
+    .flavour-card-notes {
+      font-family: var(--f-secondary);
+      font-size: 1.02rem;
+      color: #584A6E;
+      line-height: 1.4;
+      margin-bottom: 18px;
+      min-height: 46px;
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       5. LIFESTYLE & SOCIAL PROOF
+       ══════════════════════════════════════════════════════════ */
+    .lifestyle-section {
+      background: #FFFDF9;
+      border-radius: var(--r-card);
+      padding: clamp(48px, 5.5vw, 80px);
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: clamp(36px, 4.5vw, 68px);
+      align-items: center;
+      box-shadow: none;
+      border: 1.5px solid rgba(20, 14, 32, 0.10);
+    }
+
+    .lifestyle-photo-card {
+      position: relative;
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1.5px solid rgba(20, 14, 32, 0.12);
+      box-shadow: none;
+      max-height: 520px;
+    }
+    .lifestyle-photo-card img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .lifestyle-photo-card:hover img {
+      transform: scale(1.03);
+    }
+
+    .photo-floating-pill {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 10px 22px;
+      border-radius: var(--r-pill);
+      font-family: var(--f-secondary);
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--brand-ink);
+      box-shadow: none;
+      border: 1.5px solid rgba(20, 14, 32, 0.12);
+    }
+
+    .lifestyle-reviews {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .review-bubble {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 22px 26px;
+      border: 1px solid rgba(27, 67, 35, 0.08);
+      box-shadow: none;
+    }
+    .review-stars {
+      color: var(--gold-accent);
+      font-size: 1.1rem;
+      margin-bottom: 6px;
+    }
+    .review-quote {
+      font-family: var(--f-secondary);
+      font-size: 1.15rem;
+      line-height: 1.45;
+      color: var(--ink-primary);
+      font-style: italic;
+      margin-bottom: 8px;
+    }
+    .review-author {
+      font-family: var(--f-secondary);
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--ink-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       6. THE HONEST COMPARISON (VS FRIED CHIPS)
+       ══════════════════════════════════════════════════════════ */
+    .comparison-section {
+      background: #FFFFFF;
+      border: 2px solid var(--brand-ink);
+      box-shadow: none;
+      border-radius: var(--r-card);
+      padding: clamp(52px, 6vw, 84px) clamp(24px, 4.5vw, 68px);
+      color: var(--brand-ink);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: clamp(32px, 4.5vh, 48px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .vs-header h2 {
+      font-family: var(--f-primary);
+      font-weight: 400;
+      font-size: clamp(2.4rem, 4.4vw, 3.8rem);
+      letter-spacing: 0.01em;
+      margin-bottom: 8px;
+      color: var(--brand-ink);
+    }
+    .vs-header p {
+      font-family: var(--f-secondary);
+      font-size: clamp(1.15rem, 1.4vw, 1.35rem);
+      color: #584A6E;
+      max-width: 620px;
+    }
+
+    .vs-table-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(20px, 3vw, 40px);
+      width: 100%;
+      max-width: 920px;
+      text-align: left;
+    }
+
+    .vs-col {
+      background: #FFF5F5;
+      border: 2px solid #FF8080;
+      border-radius: 28px;
+      padding: clamp(24px, 3.5vw, 36px);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      box-shadow: none;
+    }
+    .vs-col.winner {
+      background: #F0FDF4;
+      border: 2px solid #10B981;
+      box-shadow: none;
+    }
+
+    .vs-col-title {
+      font-family: var(--f-primary);
+      font-size: 1.8rem;
+      letter-spacing: 0.01em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--brand-ink);
+    }
+    .vs-col.winner .vs-col-title {
+      color: #059669;
+    }
+
+    .vs-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-family: var(--f-secondary);
+      font-size: 1.15rem;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(20, 14, 32, 0.08);
+      color: var(--brand-ink);
+      line-height: 1.35;
+    }
+    .vs-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .vs-badge-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .vs-badge-yes {
+      background: #10B981;
+      color: #FFFFFF;
+    }
+    .vs-badge-no {
+      background: #EF4444;
+      color: #FFFFFF;
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       7. BRAND SHOWCASE & PARTNERSHIP HUB (REDESIGNED BOTTOM CARD)
+       ══════════════════════════════════════════════════════════ */
+    .showcase-hub {
+      background: linear-gradient(135deg, #FFF9ED 0%, #FFFDF5 50%, #FFF3DC 100%);
+      border-radius: var(--r-card);
+      color: var(--brand-ink);
+      padding: clamp(56px, 6.5vw, 88px) clamp(28px, 5vw, 72px);
+      display: grid;
+      grid-template-columns: 1.15fr 1fr 1.15fr;
+      gap: clamp(24px, 3.5vw, 48px);
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      border: 2px solid var(--brand-ink);
+      box-shadow: none;
+    }
+
+    .showcase-left {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .showcase-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 200, 44, 0.15);
+      padding: 6px 16px;
+      border-radius: var(--r-pill);
+      font-size: 0.88rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--c-gold);
+      font-family: var(--f-secondary);
+      font-weight: 700;
+      border: 1px solid rgba(255, 200, 44, 0.35);
+      width: fit-content;
+    }
+    .showcase-heading {
+      font-family: var(--f-primary);
+      font-weight: 400;
+      font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+      line-height: 1.05;
+      letter-spacing: 0.01em;
+    }
+    .showcase-subtext {
+      font-family: var(--f-secondary);
+      font-size: clamp(1.1rem, 1.3vw, 1.28rem);
+      line-height: 1.55;
+      color: #584A6E;
+    }
+    .showcase-badges-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 6px;
+    }
+    .showcase-badge-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--brand-ink);
+      background: #FFFFFF;
+      border: 2px solid var(--brand-ink);
+      box-shadow: 2.5px 2.5px 0 var(--brand-ink);
+      padding: 8px 16px;
+      border-radius: var(--r-pill);
+      width: fit-content;
+    }
+
+    .showcase-center {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 280px;
+    }
+    .showcase-jar-aura {
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      background: radial-gradient(circle, rgba(251, 191, 36, 0.32) 0%, rgba(251, 191, 36, 0) 70%);
+      border-radius: 50%;
+      filter: blur(28px);
+    }
+    .showcase-jar-img {
+      height: clamp(260px, 32vh, 340px);
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 20px 36px rgba(0, 0, 0, 0.45));
+      animation: floatSubtle 4s ease-in-out infinite;
+      position: relative;
+      z-index: 2;
+    }
+    @keyframes floatSubtle {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* Floating Spice Accents in Hub */
+    .showcase-floating-doodle {
+      position: absolute;
+      opacity: 0.55;
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    /* Showcase Inquiry Form */
+    .showcase-form-wrap {
+      background: #FFFFFF;
+      border: 2px solid var(--brand-ink);
+      border-radius: 24px;
+      padding: clamp(24px, 3.5vw, 36px);
+      box-shadow: none;
+    }
+
+    .form-success-box {
+      display: none;
+      background: #FFFBEB;
+      border: 1.5px solid var(--c-gold);
+      border-radius: 20px;
+      padding: 24px;
+      text-align: center;
+      color: var(--c-jamun);
+    }
+    .form-success-box h4 {
+      font-family: var(--f-primary);
+      font-size: 1.5rem;
+      margin-bottom: 6px;
+    }
+    .form-success-box p {
+      font-family: var(--f-secondary);
+      font-size: 1.1rem;
+      line-height: 1.4;
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       8. FOOTER
+       ══════════════════════════════════════════════════════════ */
+    .site-footer {
+      border-top: 1px solid var(--border-light);
+      padding: clamp(36px, 4.5vh, 52px) 0 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .footer-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .footer-logo {
+      height: 42px;
+      width: auto;
+      filter: brightness(0) saturate(100%) invert(18%) sepia(45%) saturate(1200%) hue-rotate(85deg) brightness(85%);
+    }
+
+    .footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: clamp(18px, 2.5vw, 36px);
+    }
+    .footer-nav a {
+      font-family: var(--f-secondary);
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--ink-primary);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .footer-nav a:hover {
+      color: var(--c-jamun);
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 14px;
+    }
+    .social-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink-primary);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+    }
+    .social-circle:hover {
+      background: var(--c-gold);
+      color: var(--c-jamun);
+      border-color: var(--c-jamun);
+      transform: translateY(-2px);
+    }
+
+    .footer-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      font-family: var(--f-secondary);
+      font-size: 0.98rem;
+      color: var(--ink-muted);
+      border-top: 1px solid rgba(27, 67, 35, 0.06);
+      padding-top: 20px;
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       RESPONSIVE BREAKPOINTS
+       ══════════════════════════════════════════════════════════ */
+    @media(max-width: 1024px) {
+      .hero-main-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero-text-block {
+        max-width: 100%;
+      }
+      .hero-index-tag {
+        justify-content: center;
+      }
+      .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .hero-actions {
+        justify-content: center;
+      }
+      .about-section {
+        grid-template-columns: 1fr;
+      }
+      .lifestyle-section {
+        grid-template-columns: 1fr;
+      }
+      .showcase-hub {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .showcase-left {
+        align-items: center;
+      }
+      .showcase-pill {
+        margin: 0 auto;
+      }
+    }
+
+    @media(max-width: 768px) {
+      .bento-grid {
+        grid-template-columns: 1fr;
+      }
+      .vs-table-grid {
+        grid-template-columns: 1fr;
+      }
+      .flavour-card {
+        flex: 1 1 100%;
+        max-width: 100%;
+      }
+      .hero-card {
+        padding: clamp(38px, 4.2vw, 60px) clamp(24px, 4.5vw, 60px) clamp(28px, 3.5vw, 42px);
+      }
+      .footer-top {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       UNBOXED 2-PRODUCT BAKES RANGE (SPACIOUS, UNCLUTTERED & BALANCED)
+       ══════════════════════════════════════════════════════════ */
+    .flavours-section#bakes {
+      padding-top: clamp(80px, 10vh, 120px) !important;
+      padding-bottom: clamp(100px, 12vh, 150px) !important;
+      scroll-margin-top: 100px;
+    }
+
+    .flavours-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: clamp(56px, 7vw, 108px);
+      max-width: 1140px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .flavour-card {
+      background: transparent;
+      border: none !important;
+      box-shadow: none !important;
+      border-radius: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      flex: 0 1 480px;
+      max-width: 500px;
+      min-width: 320px;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .flavour-card:hover {
+      transform: translateY(-6px);
+    }
+
+    /* Product stage: frames the horizontal box */
+    .card-visual-stage {
+      position: relative;
+      width: 100%;
+      height: clamp(190px, 22vh, 230px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Horizontal compact aura: strictly BEHIND the product box, NEVER bleeding down into text */
+    .card-aura-cookie {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: clamp(280px, 32vw, 360px);
+      height: clamp(80px, 9.5vw, 110px);
+      border-radius: 50%;
+      filter: blur(28px);
+      opacity: 0.75;
+      pointer-events: none;
+      z-index: 1;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .flavour-card:hover .card-aura-cookie {
+      opacity: 0.92;
+      transform: translate(-50%, -50%) scale(1.08);
+    }
+
+    .card-jar-img {
+      position: relative;
+      z-index: 3;
+      width: clamp(290px, 33vw, 370px);
+      max-width: 96%;
+      height: auto;
+      object-fit: contain;
+      filter: none;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .flavour-card:hover .card-jar-img {
+      transform: scale(1.04);
+    }
+
+    /* Content Area: Airy, luxurious vertical rhythm with zero clutter */
+    .card-content-area {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      width: 100%;
+      margin-top: clamp(32px, 4.2vh, 46px); /* Clear generous space below the product */
+    }
+
+    .card-flavour-name {
+      font-family: var(--f-primary);
+      font-size: clamp(1.85rem, 2.25vw, 2.25rem);
+      line-height: 1.18;
+      color: var(--brand-ink);
+      min-height: clamp(52px, 6vw, 68px); /* Aligns baselines across 1-line and 2-line titles */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px; /* Distinct, uncluttered gap to sub-text */
+      letter-spacing: 0.01em;
+    }
+
+    .card-tagline {
+      display: inline-block;
+      font-family: var(--f-secondary);
+      font-weight: 800;
+      font-size: clamp(0.78rem, 0.9vw, 0.88rem);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      margin-bottom: 20px; /* Distinct gap between sub-text and description */
+    }
+
+    .card-desc {
+      font-family: var(--f-secondary);
+      font-size: clamp(1.04rem, 1.18vw, 1.16rem);
+      line-height: 1.7;
+      color: var(--ink-muted);
+      max-width: 410px;
+      min-height: clamp(75px, 8vw, 92px); /* Ensures button baselines align across cards */
+      margin-bottom: clamp(32px, 4vh, 44px); /* Generous breathing room above the button */
+    }
+
+    .card-cta-row {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .btn-flavour-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 14px 36px;
+      font-family: var(--f-secondary);
+      font-size: 0.96rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      border-radius: var(--r-pill);
+      text-decoration: none;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: none;
+    }
+    .btn-flavour-action:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.08);
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       DIRECT CONTACT DETAILS CARD (REPLACED FORM)
+       ══════════════════════════════════════════════════════════ */
+    .showcase-contact-wrap {
+      background: #FFFFFF;
+      border: 2px solid var(--brand-ink);
+      border-radius: 26px;
+      padding: clamp(26px, 3.5vw, 36px);
+      box-shadow: none;
+      display: flex;
+      flex-direction: column;
+      gap: clamp(18px, 2.4vh, 24px);
+    }
+
+    .showcase-contact-header {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .contact-pill-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--f-secondary);
+      font-weight: 800;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #EA580C;
+      background: rgba(234, 88, 12, 0.10);
+      border: 1px solid rgba(234, 88, 12, 0.25);
+      padding: 4px 12px;
+      border-radius: var(--r-pill);
+      width: fit-content;
+    }
+
+    .showcase-contact-title {
+      font-family: var(--f-primary);
+      font-size: clamp(1.8rem, 2.4vw, 2.2rem);
+      line-height: 1.1;
+      color: var(--brand-ink);
+      letter-spacing: 0.01em;
+    }
+
+    .showcase-contact-desc {
+      font-family: var(--f-secondary);
+      font-size: clamp(0.98rem, 1.1vw, 1.08rem);
+      line-height: 1.5;
+      color: var(--ink-muted);
+    }
+
+    .contact-methods-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .contact-method-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 18px;
+      background: #FAFAF9;
+      border: 1.5px solid rgba(20, 14, 32, 0.12);
+      border-radius: 18px;
+      text-decoration: none;
+      color: var(--brand-ink);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .contact-method-card:hover {
+      background: #FFFFFF;
+      border-color: var(--brand-ink);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    .contact-method-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      flex-shrink: 0;
+    }
+    .icon-email {
+      background: #EFF6FF;
+      border: 1px solid #BFDBFE;
+    }
+    .icon-whatsapp {
+      background: #F0FDF4;
+      border: 1px solid #BBF7D0;
+    }
+
+    .contact-method-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      flex-grow: 1;
+      min-width: 0;
+    }
+
+    .contact-method-label {
+      font-family: var(--f-secondary);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+
+    .contact-method-value {
+      font-family: var(--f-secondary);
+      font-size: clamp(1rem, 1.15vw, 1.12rem);
+      font-weight: 700;
+      color: var(--brand-ink);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .contact-method-arrow {
+      font-size: 1.25rem;
+      color: var(--ink-muted);
+      transition: transform 0.25s ease, color 0.25s ease;
+      flex-shrink: 0;
+    }
+    .contact-method-card:hover .contact-method-arrow {
+      transform: translateX(4px);
+      color: var(--brand-ink);
+    }
+
+    .contact-footer-note {
+      font-family: var(--f-secondary);
+      font-size: 0.86rem;
+      color: var(--ink-muted);
+      font-weight: 600;
+      text-align: center;
+      padding-top: 4px;
+    }
+
+
+    /* ══════════════════════════════════════════════════════════
+       COMPREHENSIVE RESPONSIVE DESIGN SYSTEM (ALL SCREEN SIZES)
+       ══════════════════════════════════════════════════════════ */
+    html, body {
+      overflow-x: hidden !important;
+      max-width: 100vw !important;
+      width: 100% !important;
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    .site-wrapper {
+      max-width: 100% !important;
+      overflow-x: hidden !important;
+      width: 100% !important;
+    }
+
+    /* Category Switcher Mobile Clamping (Fits 320px - 480px without overflow) */
+    .category-switcher-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 0px;
+      margin-bottom: calc(-1 * clamp(100px, 14vh, 180px) + 14px);
+      position: relative;
+      z-index: 10;
+    }
+    .category-switcher {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1.5px solid rgba(20, 14, 32, 0.10);
+      padding: 5px 6px;
+      border-radius: var(--r-pill);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+    .cat-pill {
+      flex: 1 1 0 !important;
+      min-width: 0 !important;
+      padding: 8px clamp(6px, 1.2vw, 12px) !important;
+      font-size: clamp(0.76rem, 2.3vw, 0.94rem) !important;
+      justify-content: center !important;
+      white-space: nowrap !important;
+      gap: 5px !important;
+    }
+    .cat-icon {
+      font-size: 0.95rem !important;
+      flex-shrink: 0 !important;
+    }
+
+    /* Hero Card & Flavour Switcher Fluid Clamping */
+    .hero-card {
+      max-width: 100% !important;
+      min-width: 0 !important;
+      overflow: hidden !important;
+      box-sizing: border-box !important;
+    }
+    .hero-flavour-switcher {
+      width: 100% !important;
+      max-width: 100% !important;
+      min-width: 0 !important;
+      box-sizing: border-box !important;
+    }
+
+    /* Tablet Breakpoint (<= 1024px) */
+    @media (max-width: 1024px) {
+      .hero-card {
+        padding: clamp(38px, 4.2vw, 60px) clamp(24px, 4.5vw, 60px) clamp(28px, 3.5vw, 42px);
+        min-height: clamp(620px, 74vh, 800px);
+      }
+      .hero-main-content {
+        grid-template-columns: 1fr !important;
+        text-align: center !important;
+        gap: 28px !important;
+      }
+      .hero-text-block {
+        max-width: 100% !important;
+      }
+      .hero-index-tag {
+        justify-content: center !important;
+      }
+      .hero-title {
+        font-size: clamp(2.5rem, 6.8vw, 4.2rem) !important;
+      }
+      .hero-description {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        font-size: clamp(1.05rem, 2.6vw, 1.25rem) !important;
+      }
+      .hero-actions {
+        justify-content: center !important;
+      }
+      .hero-visual-stage {
+        min-height: clamp(420px, 54vh, 580px);
+      }
+      .hero-product-img {
+        height: clamp(440px, 56vh, 600px);
+      }
+      .hero-bg-watermark {
+        font-size: clamp(3.2rem, 12vw, 8rem) !important;
+      }
+      .about-section {
+        grid-template-columns: 1fr !important;
+        gap: 36px !important;
+      }
+      .about-left {
+        text-align: center !important;
+      }
+      .about-badges-row {
+        justify-content: center !important;
+      }
+      .lifestyle-section {
+        grid-template-columns: 1fr !important;
+        gap: 32px !important;
+      }
+      .showcase-hub {
+        grid-template-columns: 1fr !important;
+        text-align: center !important;
+        padding: clamp(36px, 5vw, 54px) clamp(20px, 3.5vw, 36px) !important;
+        gap: 32px !important;
+      }
+      .showcase-left {
+        align-items: center !important;
+      }
+      .showcase-pill {
+        margin: 0 auto !important;
+      }
+      .showcase-badges-list {
+        align-items: center !important;
+      }
+      .showcase-badge-item {
+        text-align: left !important;
+        max-width: 100% !important;
+      }
+      .showcase-center {
+        min-height: 220px !important;
+      }
+      .showcase-jar-img {
+        height: clamp(220px, 28vh, 280px) !important;
+      }
+    }
+
+    /* Mobile Breakpoint (<= 768px) */
+    @media (max-width: 768px) {
+      :root {
+        --s-gutter: 14px;
+      }
+      .nav-bar {
+        padding: 8px 16px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+      }
+      .nav-group:first-child {
+        display: none !important;
+      }
+      .nav-group:last-child {
+        display: flex !important;
+        align-items: center !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      .nav-group:last-child .nav-link {
+        display: none !important;
+      }
+      .nav-group:last-child .btn {
+        display: inline-flex !important;
+        padding: 6px 14px !important;
+        font-size: 0.8rem !important;
+        white-space: nowrap !important;
+      }
+      .nav-logo-img {
+        height: 36px !important;
+      }
+      .nav-cta {
+        padding: 8px 18px !important;
+        font-size: 0.85rem !important;
+      }
+
+      .hero-card {
+        padding: clamp(38px, 4.2vw, 60px) clamp(24px, 4.5vw, 60px) clamp(28px, 3.5vw, 42px);
+        border-radius: 24px !important;
+      }
+      .hero-title {
+        font-size: clamp(2.1rem, 8.2vw, 2.9rem) !important;
+        line-height: 1.05 !important;
+      }
+      .hero-actions {
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 10px !important;
+      }
+      .hero-actions .btn {
+        width: 100% !important;
+        text-align: center !important;
+        justify-content: center !important;
+        padding: 13px 20px !important;
+      }
+
+      /* Horizontal Touch-Momentum Flavour Switcher */
+      .hero-flavour-switcher {
+        justify-content: flex-start !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        padding: 6px 6px 12px !important;
+        margin-top: 18px !important;
+        gap: 7px !important;
+      }
+      .flavour-pill {
+        flex-shrink: 0 !important;
+        padding: 8px 13px !important;
+        font-size: 0.82rem !important;
+      }
+
+      .hero-visual-stage {
+        min-height: clamp(420px, 54vh, 580px);
+      }
+      .hero-product-img {
+        height: clamp(440px, 56vh, 600px);
+      }
+      .hero-bg-watermark {
+        font-size: clamp(2.4rem, 13vw, 4.5rem) !important;
+      }
+      .hero-doodle {
+        opacity: 0.4 !important;
+      }
+      .doodle-1 { top: 6% !important; left: 4% !important; width: 30px !important; }
+      .doodle-2 { bottom: 20% !important; left: 4% !important; width: 26px !important; }
+      .doodle-3 { top: 8% !important; right: 4% !important; width: 30px !important; }
+      .doodle-4 { bottom: 22% !important; right: 4% !important; width: 32px !important; }
+
+      .bento-grid {
+        grid-template-columns: 1fr !important;
+        gap: 14px !important;
+      }
+      .bento-card {
+        padding: 22px 18px !important;
+      }
+      .about-badge {
+        font-size: 0.8rem !important;
+        padding: 6px 10px !important;
+      }
+
+      /* Comparison Table Mobile Scroller */
+      .vs-table-grid {
+        grid-template-columns: 1fr !important;
+        gap: 18px !important;
+      }
+      .comparison-table-wrapper {
+        width: 100% !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        border-radius: 16px !important;
+        padding-bottom: 8px !important;
+      }
+      .comparison-table {
+        min-width: 520px !important;
+      }
+
+      /* Lifestyle Photo Card */
+      .lifestyle-photo-card {
+        max-height: 360px !important;
+        width: 100% !important;
+      }
+      .lifestyle-photo-card img {
+        max-height: 360px !important;
+        width: 100% !important;
+        object-fit: cover !important;
+      }
+      .photo-floating-pill {
+        font-size: 0.8rem !important;
+        padding: 8px 14px !important;
+        bottom: 14px !important;
+        left: 14px !important;
+      }
+
+      /* Contact Card on Mobile */
+      .showcase-contact-wrap {
+        padding: 22px 16px !important;
+        border-radius: 20px !important;
+        text-align: left !important;
+      }
+      .contact-method-card {
+        padding: 12px 14px !important;
+        gap: 10px !important;
+      }
+      .contact-method-icon {
+        width: 38px !important;
+        height: 38px !important;
+        font-size: 1.15rem !important;
+      }
+      .contact-method-value {
+        font-size: 0.92rem !important;
+      }
+
+      /* Footer */
+      .footer-top {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 22px !important;
+      }
+      .footer-nav {
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 14px !important;
+      }
+      .footer-bottom {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 10px !important;
+      }
+    }
+
+    /* Small Mobile Breakpoint (<= 480px) */
+    @media (max-width: 480px) {
+      .section-label {
+        font-size: clamp(2rem, 9vw, 2.7rem) !important;
+      }
+      .flavours-header h2 {
+        font-size: clamp(2rem, 8.8vw, 2.7rem) !important;
+      }
+      .btn-primary, .btn-orange {
+        width: 100% !important;
+        justify-content: center !important;
+      }
+      .card-aura-cookie {
+        width: clamp(220px, 78vw, 300px) !important;
+        height: 75px !important;
+      }
+      .card-jar-img {
+        width: clamp(240px, 82vw, 320px) !important;
+      }
+      .card-tagline {
+        white-space: normal !important;
+        font-size: 0.78rem !important;
+      }
+      .card-flavour-name {
+        font-size: 1.7rem !important;
+        min-height: auto !important;
+      }
+      .card-desc {
+        min-height: auto !important;
+      }
+    }
+
+
+    @media (min-width: 500px) {
+      .hero-flavour-switcher {
+        justify-content: center !important;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="site-wrapper">
+
+  <!-- ════════════════════════════════════════════════════════
+       1. TOP NAVIGATION
+       ════════════════════════════════════════════════════════ -->
+  <header>
+    <nav class="nav-bar" aria-label="Main Navigation">
+      <div class="nav-group">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#bakes" class="nav-link">Bakes Range</a>
+        <a href="#why-cookies" class="nav-link">Flour Craft</a>
+      </div>
+
+      <a href="#" aria-label="Pramodan Home">
+        <img class="nav-brand-logo" src="pramodan_assets/Secondry_Logo_crimson.png" alt="Pramodan Logo"/>
+      </a>
+
+      <div class="nav-group">
+        <a href="#reviews" class="nav-link">Reviews</a>
+        <a href="#connect" class="nav-link">Inquiries</a>
+        <a href="#connect" class="btn" style="background: var(--c-gold); color: var(--c-jamun); font-weight: 800; border: 2px solid var(--c-jamun); box-shadow: 2px 2px 0px var(--c-jamun); padding: 9px 22px; font-size: 0.95rem; text-decoration: none;" onmouseover="this.style.background='#FFE180'; this.style.transform='translate(-1px,-1px)'; this.style.boxShadow='3px 3px 0px var(--c-jamun)';" onmouseout="this.style.background='var(--c-gold)'; this.style.transform='none'; this.style.boxShadow='2px 2px 0px var(--c-jamun)';">Brand Deck ↗</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ════════════════════════════════════════════════════════
+       MAIN CONTENT (WITH LUXURIOUS SECTION PADDING)
+       ════════════════════════════════════════════════════════ -->
+  <main id="main-content">
+
+    <!-- Category Switcher (Makhana, Honey, Cookies) -->
+    <div class="category-switcher-wrapper">
+      <div class="category-switcher" role="tablist" aria-label="Product Category Switcher">
+        <a href="pramodan_showcase.html" class="cat-pill" role="tab" aria-selected="false">
+          <span class="cat-icon">🍿</span> Makhana
+        </a>
+        <a href="pramodan_honey.html" class="cat-pill" role="tab" aria-selected="false">
+          <span class="cat-icon">🍯</span> Honey
+        </a>
+        <a href="pramodan_cookies.html" class="cat-pill active" role="tab" aria-selected="true">
+          <span class="cat-icon">🍪</span> Cookies
+        </a>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════
+         2. HERO CARD (ECO FRUITS & PIMS SHOWCASE)
+         ════════════════════════════════════════════════════════ -->
+    <section class="hero-card" id="hero" style="background: linear-gradient(135deg, #1E40AF 0%, #2563EB 60%, #1D4ED8 100%);" aria-label="Hero Showcase">
+      <!-- Giant background typography behind product -->
+      <div class="hero-bg-watermark" id="hero-watermark">LOTUS BAKES</div>
+
+      <!-- Floating Playful Ingredient Doodles (ZERO DROP SHADOW) -->
+      <img class="hero-doodle doodle-1" id="doodle-1" src="pramodan_assets/doodles/Makhana.svg" style="opacity:0.35;" alt="Makhana Puff"/>
+      <img class="hero-doodle doodle-2" id="doodle-2" src="pramodan_assets/doodles/makhana_cream.svg" style="opacity:0.35;" alt="Cookie Crumb"/>
+      <img class="hero-doodle doodle-3" id="doodle-3" src="pramodan_assets/doodles/pudina_white.svg" style="opacity:0.25;" alt="Lotus Flour"/>
+      <img class="hero-doodle doodle-4" id="doodle-4" src="pramodan_assets/doodles/makhana_white.svg" style="opacity:0.35;" alt="Lotus Seed"/>
+
+      <!-- Top Content Area -->
+      <div class="hero-main-content">
+        <div class="hero-text-block">
+          <div class="hero-index-tag" id="hero-index-tag">01 / 02 ARTISANAL BAKES</div>
+          <h1 class="hero-title" id="hero-title">Crunch Bold.<br/>Guilt Zero.</h1>
+          <p class="hero-description" id="hero-desc">
+            India's first slow-baked cookies crafted with 100% stone-ground lotus seed makhana flour. High plant fiber, natural crunch, and zero refined maida or palm oil.
+          </p>
+          <div class="hero-actions">
+            <a href="#about" class="btn btn-glass">Discover Craft</a>
+            <a href="#bakes" class="btn btn-orange">Explore Bakes &darr;</a>
+          </div>
+        </div>
+
+        <!-- Product Jar/Box Stage -->
+        <div class="hero-visual-stage">
+          <div class="hero-product-aura" id="hero-aura" style="background: radial-gradient(circle, rgba(37, 99, 235, 0.45) 0%, rgba(37, 99, 235, 0) 70%); width: clamp(400px, 48vw, 620px); height: clamp(220px, 28vw, 340px); border-radius: 50%;"></div>
+          <img class="hero-product-img" id="hero-jar" src="pramodan_assets/cookie_classic_butter.png" style="width: clamp(440px, 52vw, 680px); max-width: 96%; height: auto; object-fit: contain;" alt="Pramodan Lotus Bakes Cookies Classic Butter"/>
+        </div>
+      </div>
+
+      <!-- Bottom Cookies Switcher Pills -->
+      <nav class="hero-flavour-switcher" aria-label="Cookies Switcher" style="justify-content: center; gap: clamp(10px, 1.5vw, 20px);">
+        <button class="flavour-pill active" onclick="switchCookie(0)">
+          <span class="flavour-icon">🍪</span> Lotus Baked Cookies
+        </button>
+        <button class="flavour-pill" onclick="switchCookie(1)">
+          <span class="flavour-icon">🌿</span> Lotus Baked - Sugar Free Cookies
+        </button>
+      </nav>
+    </section>
+
+    <section class="about-section" id="about" aria-label="About Pramodan Lotus Bakes">
+      <!-- Left Column: Story -->
+      <div class="about-left">
+        <span class="section-tagline">The Lotus Flour Revolution</span>
+        <h2 class="section-label">Ancient Grain.<br/>Modern Bakery.</h2>
+        <p class="about-desc">
+          For generations, commercial cookies have relied on bleached maida, hydrogenated vanaspati, and chemical emulsifiers. Pramodan transforms snacking with slow-baked lotus seed makhana flour.
+        </p>
+        <p class="about-desc">
+          Every batch of Lotus Bakes is stone-ground, blended with wholesome stone-ground lotus ingredients, and slow-baked to produce an airy, melt-in-the-mouth crumb packed with natural plant fiber and sustained energy.
+        </p>
+        <div class="about-badges-row">
+          <span class="about-badge">✦ 100% Makhana Flour</span>
+          <span class="about-badge">✦ Zero Refined Maida</span>
+          <span class="about-badge">✦ Zero Palm Oil</span>
+          <span class="about-badge">✦ 100% Lotus Flour</span>
+        </div>
+      </div>
+
+      <!-- Right Column: 4 Bento Cards -->
+      <div class="bento-grid">
+        <!-- Bento 1 -->
+        <div class="bento-card">
+          <div class="bento-card-header">
+            <div class="bento-card-icon icon-green">🌾</div>
+            <span style="font-weight:700; color: var(--c-jamun); font-size: 0.95rem;">FLOUR PURITY</span>
+          </div>
+          <div>
+            <div class="bento-stat">100%</div>
+            <h3 class="bento-card-title">Makhana Flour</h3>
+            <p class="bento-card-desc">Zero bleached wheat maida. Stone-ground phool makhana provides rich dietary fiber and light digestion.</p>
+          </div>
+        </div>
+
+        <!-- Bento 2 -->
+        <div class="bento-card">
+          <div class="bento-card-header">
+            <div class="bento-card-icon icon-orange">🌱</div>
+            <span style="font-weight:700; color: #E65100; font-size: 0.95rem;">HONEST FATS</span>
+          </div>
+          <div>
+            <div class="bento-stat">0%</div>
+            <h3 class="bento-card-title">Zero Palm Oil</h3>
+            <p class="bento-card-desc">Baked exclusively with whole stone-ground lotus ingredients. Zero hydrogenated fats, trans-fat free, heart-healthy indulgence.</p>
+          </div>
+        </div>
+
+        <!-- Bento 3 -->
+        <div class="bento-card">
+          <div class="bento-card-header">
+            <div class="bento-card-icon icon-yellow">✨</div>
+            <span style="font-weight:700; color: #B45309; font-size: 0.95rem;">NUTRITION</span>
+          </div>
+          <div>
+            <div class="bento-stat">3x</div>
+            <h3 class="bento-card-title">Digestive Fiber</h3>
+            <p class="bento-card-desc">Lotus seed flour supports steady gut health without the sluggish glycemic spikes of wheat biscuits.</p>
+          </div>
+        </div>
+
+        <!-- Bento 4 -->
+        <div class="bento-card">
+          <div class="bento-card-header">
+            <div class="bento-card-icon icon-purple">🍪</div>
+            <span style="font-weight:700; color: #7E22CE; font-size: 0.95rem;">CRUMB TEXTURE</span>
+          </div>
+          <div>
+            <div class="bento-stat">100%</div>
+            <h3 class="bento-card-title">Slow Stone-Baked</h3>
+            <p class="bento-card-desc">Gently roasted in ceramic stone ovens for an artisan golden crumb that dissolves blissfully on the tongue.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="flavours-section" id="bakes" aria-label="Our Makhana Cookies">
+      <div class="flavours-header">
+        <span class="section-tagline" style="justify-content: center;">Artisanal Lotus Bakes</span>
+        <h2>Our Lotus Makhana Bakes</h2>
+        <p>Slow-baked cookies crafted from 100% stone-ground lotus seed makhana flour. Zero refined maida, zero palm oil, zero preservatives.</p>
+      </div>
+
+      <!-- Unboxed 2-Product Grid with Clean Spacing and Contained Product Back-Auras (ZERO DROP SHADOW) -->
+      <div class="flavours-grid">
+
+        <!-- Product 1: Lotus Baked Cookies -->
+        <article class="flavour-card">
+          <div class="card-visual-stage">
+            <div class="card-aura-cookie" style="background: #2563EB;"></div>
+            <img class="flavour-item-doodle doodle-left" src="pramodan_assets/doodles/Makhana.svg" style="top: 8%; left: 8%; opacity: 0.75; width: clamp(38px, 4vw, 48px);" alt="Makhana Puff"/>
+            <img class="flavour-item-doodle doodle-right" src="pramodan_assets/doodles/makhana_cream.svg" style="bottom: 10%; right: 8%; opacity: 0.7; width: clamp(36px, 3.8vw, 44px);" alt="Lotus Crunch"/>
+            <img class="card-jar-img" src="pramodan_assets/cookie_classic_butter.png" alt="Pramodan Lotus Baked Cookies"/>
+          </div>
+          <div class="card-content-area">
+            <h3 class="card-flavour-name">Lotus Baked Cookies</h3>
+            <span class="card-tagline" style="color: #2563EB;">100% MAKHANA FLOUR &bull; ZERO MAIDA &bull; ZERO PALM OIL</span>
+            <p class="card-desc">
+              Slow-baked with 100% stone-ground lotus seed makhana flour. Wholesome, crunchy, and packed with honest plant fiber and clean nourishment.
+            </p>
+            <div class="card-cta-row">
+              <a href="#connect" class="btn-flavour-action" style="background: #2563EB; color: #fff;">
+                <span>Explore Bakes</span>
+                <span class="arrow-circle">&rarr;</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Product 2: Lotus Baked - Sugar Free Cookies -->
+        <article class="flavour-card">
+          <div class="card-visual-stage">
+            <div class="card-aura-cookie" style="background: #EA580C;"></div>
+            <img class="flavour-item-doodle doodle-left" src="pramodan_assets/doodles/makhana_white.svg" style="top: 8%; left: 8%; opacity: 0.75; width: clamp(38px, 4vw, 48px);" alt="Lotus Flour"/>
+            <img class="flavour-item-doodle doodle-right" src="pramodan_assets/doodles/pudina_white.svg" style="bottom: 10%; right: 8%; opacity: 0.7; width: clamp(36px, 3.8vw, 44px);" alt="Wholesome Blend"/>
+            <img class="card-jar-img" src="pramodan_assets/cookie_sugar_free.png" alt="Pramodan Lotus Baked - Sugar Free Cookies"/>
+          </div>
+          <div class="card-content-area">
+            <h3 class="card-flavour-name">Lotus Baked &ndash; Sugar Free Cookies</h3>
+            <span class="card-tagline" style="color: #EA580C;">DIABETIC FRIENDLY &bull; ZERO ADDED SUGAR</span>
+            <p class="card-desc">
+              Naturally sweetened with stevia and roasted lotus plant fibers. Ideal for mindful tea breaks, gym fuel, and clean guilt-free cravings.
+            </p>
+            <div class="card-cta-row">
+              <a href="#connect" class="btn-flavour-action" style="background: #EA580C; color: #fff;">
+                <span>Explore Bakes</span>
+                <span class="arrow-circle">&rarr;</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="lifestyle-section" id="reviews" aria-label="Community & Reviews">
+      <!-- Left: Photography Card (Using authentic lifestyle.jpg) -->
+      <div class="lifestyle-photo-card">
+        <img src="pramodan_assets/cookies_lifestyle.jpg" alt="Pramodan Lotus Bakes Lifestyle"/>
+        <div class="photo-floating-pill">
+          🌟 Loved by 15,000+ Conscious Snackers
+        </div>
+      </div>
+
+      <!-- Right: Testimonials & Lifestyle Notes -->
+      <div class="lifestyle-reviews">
+        <div>
+          <span class="section-tagline">Crafted For Everyday Life</span>
+          <h2 class="section-label" style="font-size: clamp(2.2rem, 3.8vw, 3.2rem); margin-top: 6px;">
+            Real People.<br/>Honest Crunch.
+          </h2>
+        </div>
+
+        <!-- Review 1 -->
+        <div class="review-bubble">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"Finally a cookie that doesn't feel heavy or leave a greasy aftertaste. The Lotus Baked Cookies have this incredible golden crunch, and the Sugar-Free version is a daily staple with evening tea."</p>
+          <p class="review-author">— Ananya Sharma, Bengaluru</p>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="review-bubble">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"Finding diabetic-friendly cookies made with 100% stone-ground lotus flour and zero palm oil seemed impossible until Pramodan. Clean ingredients and honest crunch."</p>
+          <p class="review-author">— Rohit Verma, New Delhi</p>
+        </div>
+
+        <div>
+          <a href="#bakes" class="btn btn-primary">Explore Lotus Bakes ✦</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         6. THE HONEST COMPARISON (VS FRIED CHIPS)
+         ════════════════════════════════════════════════════════ -->
+    <section class="comparison-section" id="why-cookies" aria-label="Cookies Nutrition Audit">
+      <div class="flavours-header">
+        <span class="section-tagline" style="justify-content: center;">THE NUTRITION AUDIT</span>
+        <h2>Pramodan Lotus Bakes vs Supermarket Biscuits</h2>
+        <p>Commercial biscuits are 60% maida and hydrogenated fats. Here is how Lotus Bakes revolutionizes teatime nutrition.</p>
+      </div>
+
+      <div class="comparison-table-wrapper">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th scope="col" style="width: 28%;">Ingredient &amp; Nutrition</th>
+              <th scope="col" class="th-pramodan" style="width: 36%;">
+                <div class="brand-th-pill">🍪 Pramodan Lotus Bakes</div>
+              </th>
+              <th scope="col" style="width: 36%;">Commercial Factory Biscuits</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Base Flour</strong></td>
+              <td class="td-pramodan"><span class="table-check">&check;</span> 100% Stone-Ground Lotus Makhana</td>
+              <td class="td-other"><span class="table-cross">&cross;</span> Bleached Refined Wheat (Maida)</td>
+            </tr>
+            <tr>
+              <td><strong>Fat Source</strong></td>
+              <td class="td-pramodan"><span class="table-check">&check;</span> 100% Lotus Seed Flour (Zero Palm Oil)</td>
+              <td class="td-other"><span class="table-cross">&cross;</span> Hydrogenated Palm Oil / Vanaspati</td>
+            </tr>
+            <tr>
+              <td><strong>Glycemic Impact</strong></td>
+              <td class="td-pramodan"><span class="table-check">&check;</span> Low GI, Slow Energy Release</td>
+              <td class="td-other"><span class="table-cross">&cross;</span> Sharp insulin spikes &amp; sluggish crash</td>
+            </tr>
+            <tr>
+              <td><strong>Digestive Comfort</strong></td>
+              <td class="td-pramodan"><span class="table-check">&check;</span> Light, alkaline, prebiotic friendly</td>
+              <td class="td-other"><span class="table-cross">&cross;</span> Heavy gluten &amp; bloat-inducing fillers</td>
+            </tr>
+            <tr>
+              <td><strong>Artificial Additives</strong></td>
+              <td class="td-pramodan"><span class="table-check">&check;</span> Zero preservatives or artificial flavors</td>
+              <td class="td-other"><span class="table-cross">&cross;</span> INS 500, INS 503, synthetic vanillin</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="showcase-hub" id="connect" aria-label="Brand Showcase & Inquiries">
+      <!-- Left Editorial Copy -->
+      <div class="showcase-left">
+        <span class="showcase-pill">✦ BRAND SHOWCASE &amp; PARTNERSHIPS</span>
+        <h2 class="showcase-heading">Bring Pramodan To Your Space</h2>
+        <p class="showcase-subtext">
+          Curating a conscious retail shelf, boutique wellness cafe, or luxury corporate hamper? We partner with select spaces who celebrate clean-label, honest superfood innovation.
+        </p>
+
+        <div class="showcase-badges-list">
+          <div class="showcase-badge-item">
+            <span>🌿</span>
+            <span>100% Direct Bihar Wetland Sourcing</span>
+          </div>
+          <div class="showcase-badge-item">
+            <span>✨</span>
+            <span>FSSAI Certified, Clean-Label &amp; Zero Palm Oil</span>
+          </div>
+          <div class="showcase-badge-item">
+            <span>📦</span>
+            <span>Retail Jars, Wholesale Bulk &amp; Custom Gifting Packs</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Center Floating Studio Jar with Ambient Glow -->
+      <div class="showcase-center">
+        <div class="showcase-jar-aura"></div>
+        <img class="showcase-jar-img" src="pramodan_assets/cookie_classic_butter.png" style="width: clamp(260px, 30vw, 360px); height: auto; object-fit: contain;" alt="Pramodan Lotus Bakes Showcase"/>
+        <img class="showcase-floating-doodle" src="pramodan_assets/doodles/chilly_red.svg" style="top:8%; right:10%; width:44px;" alt="Chilli Doodle"/>
+        <img class="showcase-floating-doodle" src="pramodan_assets/doodles/makhana_white.svg" style="bottom:12%; left:8%; width:38px;" alt="Makhana Doodle"/>
+      </div>
+
+      <!-- Right Showcase Inquiry & Brand Deck Form -->
+            <!-- Right Showcase Contact Card (Direct Email & WhatsApp) -->
+      <div class="showcase-contact-wrap">
+        <div class="showcase-contact-header">
+          <span class="contact-pill-tag">✦ Direct Inquiries</span>
+          <h3 class="showcase-contact-title">Partner With Us</h3>
+          <p class="showcase-contact-desc">
+            Reach out directly for wholesale distribution, retail stockist inquiries, corporate gifting, or brand collaborations.
+          </p>
+        </div>
+
+        <div class="contact-methods-list">
+          <!-- Email Contact Block -->
+          <a href="mailto:wecare@pramodanstore.com" class="contact-method-card" aria-label="Send email to wecare@pramodanstore.com">
+            <div class="contact-method-icon icon-email">✉️</div>
+            <div class="contact-method-info">
+              <span class="contact-method-label">OFFICIAL EMAIL</span>
+              <span class="contact-method-value">wecare@pramodanstore.com</span>
+            </div>
+            <span class="contact-method-arrow">&rarr;</span>
+          </a>
+
+          <!-- WhatsApp Contact Block -->
+          <a href="https://wa.me/918527428013?text=Hi%20Pramodan%20Team%2C%20I%20would%20like%20to%20inquire%20about%20your%20products" target="_blank" rel="noopener noreferrer" class="contact-method-card" aria-label="Chat on WhatsApp with Pramodan">
+            <div class="contact-method-icon icon-whatsapp">💬</div>
+            <div class="contact-method-info">
+              <span class="contact-method-label">WHATSAPP &amp; PHONE</span>
+              <span class="contact-method-value">+91 85274 28013</span>
+            </div>
+            <span class="contact-method-arrow">&rarr;</span>
+          </a>
+        </div>
+
+        <div class="contact-footer-note">
+          <span>✦ Mon&ndash;Sat: 9:00 AM &ndash; 7:00 PM IST &bull; Fast Response</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ════════════════════════════════════════════════════════
+       8. FOOTER
+       ════════════════════════════════════════════════════════ -->
+  <footer class="site-footer" aria-label="Site Footer">
+    <div class="footer-top">
+      <div class="footer-left">
+        <img class="footer-logo" src="pramodan_assets/Logo.png" alt="Pramodan Logo"/>
+        <p style="font-family: var(--f-secondary); font-size: 1.05rem; color: var(--ink-muted); max-width: 340px; margin-top: 8px;">
+          India's happiest slow-roasted makhana snacks. Seasoned with whole Indian spices, toasted with zero palm oil.
+        </p>
+        <div style="margin-top: 14px; font-family: var(--f-secondary); font-size: 0.95rem; color: var(--brand-ink); display: flex; flex-direction: column; gap: 4px;">
+          <div><strong>Email:</strong> <a href="mailto:wecare@pramodanstore.com" style="color: inherit; text-decoration: underline;">wecare@pramodanstore.com</a></div>
+          <div><strong>WhatsApp:</strong> <a href="https://wa.me/918527428013" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">+91 85274 28013</a></div>
+        </div>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer Links">
+        <a href="#about">About</a>
+        <a href="#flavours">Flavours</a>
+        <a href="#why-makhana">The Craft</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#connect">Inquiries</a>
+      </nav>
+
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/pramodan.store?stkn=MW5kZTJ0dXFvczU1eg==" target="_blank" rel="noopener noreferrer" class="social-circle" aria-label="Pramodan Instagram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2026 Pramodan Foods Pvt. Ltd. All rights reserved. Designed for Brand Showcase.</div>
+      <div>Bihar Lotus Harvest • Clean-Label Superfoods • 100% Vegetarian</div>
+    </div>
+  </footer>
+
+</div>
+
+<!-- ════════════════════════════════════════════════════════
+     INTERACTIVE JAVASCRIPT LOGIC (ALL 7 FLAVOURS)
+     ════════════════════════════════════════════════════════ -->
+<script>
+  // Complete Authentic 7 Makhana Flavours Lineup (WITH DYNAMIC HERO BACKGROUNDS)
+const cookieVariants = [
+      {
+        name: "Lotus Baked Cookies",
+        indexTag: "01 / 02 ARTISANAL BAKES",
+        title: "Crunch Bold.<br/>Guilt Zero.",
+        desc: "India's first slow-baked cookies crafted with 100% stone-ground lotus seed makhana flour. High plant fiber, natural crunch, and zero refined maida or palm oil.",
+        gradient: "linear-gradient(135deg, #1E40AF 0%, #2563EB 60%, #1D4ED8 100%)",
+        auraColor: "rgba(37, 99, 235, 0.45)",
+        watermark: "LOTUS BAKES",
+        jarImg: "pramodan_assets/cookie_classic_butter.png"
+      },
+      {
+        name: "Lotus Baked - Sugar Free Cookies",
+        indexTag: "02 / 02 ARTISANAL BAKES",
+        title: "Pure Crunch.<br/>Zero Sugar.",
+        desc: "Naturally sweetened lotus seed cookies crafted for mindful snackers and diabetic lifestyles. Zero refined sugars, zero palm oil, pure wholesome indulgence.",
+        gradient: "linear-gradient(135deg, #FF8C00 0%, #EA580C 60%, #C2410C 100%)",
+        auraColor: "rgba(234, 88, 12, 0.45)",
+        watermark: "SUGAR FREE",
+        jarImg: "pramodan_assets/cookie_sugar_free.png"
+      }
+    ];
+
+    let currentCookieIndex = 0;
+
+    function switchCookie(index) {
+      currentCookieIndex = index;
+      const v = cookieVariants[index];
+
+      const heroCard = document.getElementById('hero');
+      if (heroCard) heroCard.style.background = v.gradient;
+
+      const wm = document.getElementById('hero-watermark');
+      if (wm) wm.textContent = v.watermark;
+
+      const tag = document.getElementById('hero-index-tag');
+      if (tag) tag.textContent = v.indexTag;
+
+      const title = document.getElementById('hero-title');
+      if (title) title.innerHTML = v.title;
+
+      const desc = document.getElementById('hero-desc');
+      if (desc) desc.textContent = v.desc;
+
+      const aura = document.getElementById('hero-aura');
+      if (aura) aura.style.background = `radial-gradient(circle, ${v.auraColor} 0%, rgba(0,0,0,0) 70%)`;
+
+      const jar = document.getElementById('hero-jar');
+      if (jar) {
+        jar.style.opacity = '0';
+        jar.style.transform = 'translateY(16px) scale(0.96)';
+        setTimeout(() => {
+          jar.src = v.jarImg;
+          jar.alt = `Pramodan Lotus Bakes - ${v.name}`;
+          jar.style.opacity = '1';
+          jar.style.transform = 'translateY(0) scale(1)';
+        }, 180);
+      }
+
+      const pills = document.querySelectorAll('.hero-flavour-switcher .flavour-pill');
+      pills.forEach((p, idx) => {
+        if (idx === index) {
+          p.classList.add('active');
+          p.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        } else {
+          p.classList.remove('active');
+        }
+      });
+    }
+
+    // Auto-cycle cookie variants every 6 seconds
+    setInterval(() => {
+      switchCookie((currentCookieIndex + 1) % cookieVariants.length);
+    }, 6000);
+
+  function handleInquirySubmit(e) {
+    e.preventDefault();
+    const form = document.getElementById('showcase-inquiry-form');
+    const successBox = document.getElementById('form-success-box');
+    form.style.display = 'none';
+    successBox.style.display = 'block';
+  }
+  document.addEventListener('DOMContentLoaded', () => {
+    switchCookie(0);
+  });
+</script>
+
+</body>
+</html>
